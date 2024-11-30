@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Question</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Question</h1>
+        <form action="{{ url_for('submit_answer') }}" method="post">
+            <input type="hidden" name="question_id" value="{{ question.id }}">
+            <div class="question">
+                <p>{{ question.question }}</p>
+            </div>
+            <div class="options">
+                <label>
+                    <input type="radio" name="answer" value="{{ question.option1 }}" required>
+                    {{ question.option1 }}
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="{{ question.option2 }}" required>
+                    {{ question.option2 }}
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="{{ question.option3 }}" required>
+                    {{ question.option3 }}
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="{{ question.option4 }}" required>
+                    {{ question.option4 }}
+                </label>
+            </div>
+            <button type="submit" class="btn">Submit Answer</button>
+        </form>
+    </div>
+</body>
+</html>

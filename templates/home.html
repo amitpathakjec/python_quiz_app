@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Dashboard</h1>
+        <div class="performance-stats">
+            <h2>Your Performance</h2>
+            <p>Total Questions Available: {{ total_available_questions }}</p>
+            <p>Total Questions Attempted: {{ total_questions }}</p>
+            <p>Correct Answers: {{ correct_answers }}</p>
+            <p>Overall Score: {{ score }}%</p>
+        </div>
+        <div class="actions">
+            {% if total_questions == 0 %}
+                <a href="{{ url_for('quiz') }}" class="btn">Start Quiz</a>
+            {% elif total_questions < total_available_questions %}
+                <a href="{{ url_for('quiz') }}" class="btn">Take Quiz</a>
+            {% else %}
+                <p class="no-questions-message">All questions have been attempted. Reset to start again.</p>
+            {% endif %}
+            <a href="{{ url_for('reset') }}" class="btn reset">Reset Performance</a>
+        </div>
+    </div>
+</body>
+</html>

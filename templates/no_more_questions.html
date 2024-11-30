@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No More Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Completed!</h1>
+        <div class="result no-questions">
+            <h2>No More Questions Available</h2>
+            <p>You have attempted all available questions in the quiz.</p>
+        </div>
+        
+        <div class="performance-stats">
+            <h3>Your Performance</h3>
+            <p>Total Questions Attempted: {{ total_questions }}</p>
+            <p>Correct Answers: {{ correct_answers }}</p>
+            <p>Final Score: {{ score }}%</p>
+        </div>
+        
+        <div class="actions">
+            <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+            <a href="{{ url_for('reset') }}" class="btn reset">Reset Quiz</a>
+        </div>
+    </div>
+</body>
+</html>
